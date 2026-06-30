@@ -1,0 +1,149 @@
+{
+  "app": {
+    "title": "Dispatch",
+    "primaryColor": "#0F766E",
+    "theme": "minimal",
+    "autosave": false,
+    "liveSeconds": 3
+  },
+  "nav": [
+    { "id": "thread", "label": "Entries", "icon": "account_tree", "screen": "thread" },
+    { "id": "people", "label": "People", "icon": "group", "screen": "people" },
+    { "id": "howto", "label": "How", "icon": "help_outline", "screen": "howto" }
+  ],
+  "screens": {
+    "thread": {
+      "title": "Dispatch",
+      "body": {
+        "type": "explorer",
+        "table": "entries",
+        "nameColumn": "title",
+        "kindColumn": "type",
+        "folderValue": "group",
+        "fileValue": "note",
+        "parentColumn": "parentId",
+        "recursive": true,
+        "orderColumn": "order",
+        "title": "Entries",
+        "railWidth": 300,
+        "railMode": "collapsible",
+        "autoSelectFirst": true,
+        "iconColumn": "type",
+        "fileIconByKind": true,
+        "folderTapExpands": true,
+        "statusColumn": "status",
+        "statusOptions": ["active", "queued", "done"],
+        "newFileLabel": "New entry",
+        "newFolderLabel": "New folder",
+        "tags": [
+          { "column": "status", "colors": { "active": "green", "queued": "amber", "done": "gray" } }
+        ],
+        "detail": {
+          "type": "column",
+          "bindRow": true,
+          "crossAxis": "stretch",
+          "scroll": true,
+          "children": [
+            {
+              "type": "notepad",
+              "table": "entries",
+              "column": "title",
+              "chromeless": true,
+              "autoHeight": true,
+              "placeholder": "Title"
+            },
+            {
+              "type": "switch",
+              "table": "entries",
+              "column": "type",
+              "cases": {
+                "image": { "type": "column", "children": [] },
+                "wireframe": { "type": "column", "children": [] },
+                "sheets": { "type": "column", "children": [] },
+                "docs": { "type": "column", "children": [] },
+                "sketchpad": { "type": "column", "children": [] }
+              },
+              "default": {
+                "type": "pick",
+                "table": "entries",
+                "column": "type",
+                "label": "Type",
+                "options": [
+                  { "value": "note", "label": "Note" },
+                  { "value": "group", "label": "Folder" },
+                  { "value": "image", "label": "Image" },
+                  { "value": "docs", "label": "Doc" },
+                  { "value": "sheets", "label": "Sheet" },
+                  { "value": "wireframe", "label": "Wireframe" },
+                  { "value": "sketchpad", "label": "Sketch" }
+                ]
+              }
+            },
+            {
+              "type": "notepad",
+              "table": "entries",
+              "column": "comment",
+              "chromeless": true,
+              "autoHeight": true,
+              "placeholder": "Write a comment…"
+            },
+            {
+              "type": "switch",
+              "table": "entries",
+              "column": "type",
+              "cases": {
+                "image":     { "type": "record", "table": "entries", "fields": ["attachment"], "editable": true },
+                "wireframe": { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "screen": "solo", "height": 460 },
+                "sheets":    { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "height": 460 },
+                "docs":      { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "screen": "solo", "height": 460 },
+                "sketchpad": { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "height": 460 }
+              }
+            }
+          ]
+        }
+      }
+    },
+    "people": {
+      "title": "People",
+      "body": {
+        "type": "column",
+        "crossAxis": "stretch",
+        "children": [
+          {
+            "type": "text",
+            "style": "caption",
+            "value": "Everyone on this board. Add a person below; tap one to rename. They show up as the 'created by' and 'prompting' chips on entries."
+          },
+          {
+            "type": "composer",
+            "table": "users",
+            "column": "name",
+            "placeholder": "Add a person by name…",
+            "sendIcon": "person_add"
+          },
+          {
+            "type": "cards",
+            "table": "users",
+            "height": "fill",
+            "minCardWidth": 260,
+            "title": "name",
+            "tableView": false,
+            "expandable": false,
+            "action": { "fn": "editRow" }
+          }
+        ]
+      }
+    },
+    "howto": {
+      "title": "How dispatch works",
+      "body": {
+        "type": "column",
+        "scroll": true,
+        "children": [
+          { "type": "text", "style": "title", "value": "One node, any shape" },
+          { "type": "text", "value": "Dispatch is a single tree of entries. Every entry is one node: it has a TITLE and a COMMENT, and a TYPE that decides its content.\n\n• Note — just the comment text.\n• Image — upload an image (or file) onto the entry; download or replace it any time.\n• Wireframe / Sheet / Doc / Sketch — an embedded tool, keyed to that entry, with its OWN isolated data.\n• Folder — an entry you open to find its child entries.\n\nThe type is set once when you pick it (an image entry stays an image — it won't turn into a wireframe). A folder is simply an entry that has children, so anything can hold anything. Rename an entry in the tree (its ⋮ → Rename); open it to edit its comment or its tool full-screen (which zooms open and shrinks back)." }
+        ]
+      }
+    }
+  }
+}

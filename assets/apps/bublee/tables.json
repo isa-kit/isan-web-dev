@@ -1,0 +1,6 @@
+{
+  "tables": [
+    { "name": "bubbles", "label": "Ideas" },
+    { "name": "links", "label": "Links" }
+  ]
+}

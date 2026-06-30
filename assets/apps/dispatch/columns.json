@@ -1,0 +1,87 @@
+{
+  "entries": [
+    {
+      "name": "title",
+      "type": "text",
+      "label": "Title",
+      "description": "The entry's name (rename it in the tree, or here)."
+    },
+    {
+      "name": "comment",
+      "type": "text",
+      "label": "Comment",
+      "description": "The note / body of this entry — always available, whatever the type."
+    },
+    {
+      "name": "attachment",
+      "type": "attachments",
+      "label": "Image / file",
+      "description": "For an `image` entry: upload an image (or file); it's stored with the entry and can be downloaded or replaced."
+    },
+    {
+      "name": "type",
+      "type": "enum",
+      "label": "Type",
+      "options": ["group", "note", "image", "wireframe", "sheets", "docs", "sketchpad"],
+      "default": "note",
+      "description": "group = folder; note = text; image = an up/downloadable image (its own attachment); wireframe / sheets / docs / sketchpad = an embedded tool keyed to THIS entry (its own isolated data)."
+    },
+    {
+      "name": "parentId",
+      "type": "ref",
+      "label": "Parent",
+      "refTable": "entries",
+      "rules": { "hidden": true },
+      "description": "The entry this one sits inside. Empty = a root entry."
+    },
+    {
+      "name": "status",
+      "type": "enum",
+      "label": "Status",
+      "options": ["active", "queued", "done"],
+      "default": "active",
+      "description": "active · queued (backlog) · done"
+    },
+    {
+      "name": "order",
+      "type": "number",
+      "label": "Order",
+      "rules": { "hidden": true }
+    },
+    {
+      "name": "createdBy",
+      "type": "ref",
+      "label": "Created by",
+      "refTable": "users",
+      "default": "u_you",
+      "description": "Who created this entry (defaults to You)."
+    },
+    {
+      "name": "prompting",
+      "type": "ref",
+      "label": "Prompting",
+      "refTable": "users",
+      "multi": true,
+      "description": "Who this is directed at / asked to respond."
+    },
+    {
+      "name": "created",
+      "type": "date",
+      "label": "Created",
+      "default": "now"
+    },
+    {
+      "name": "updatedAt",
+      "type": "text",
+      "label": "Updated"
+    }
+  ],
+  "users": [
+    {
+      "name": "name",
+      "type": "text",
+      "label": "Name",
+      "required": true
+    }
+  ]
+}

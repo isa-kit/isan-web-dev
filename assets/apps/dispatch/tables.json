@@ -1,0 +1,16 @@
+{
+  "tables": [
+    {
+      "name": "entries",
+      "label": "Entries",
+      "icon": "account_tree",
+      "description": "The universal node — a project, task, comment, note, or embedded tool (wireframe / sheet / doc / sketch), nested to any depth via parentId. Every entry has a title and a comment; its type decides its content; any entry can hold child entries."
+    },
+    {
+      "name": "users",
+      "label": "People",
+      "icon": "group",
+      "description": "The people on this board. Defined here, addable any time; an entry's 'created by' and 'prompting' chips point at them."
+    }
+  ]
+}

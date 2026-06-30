@@ -1,0 +1,13 @@
+{
+  "bubbles": [
+    { "name": "id", "type": "text" },
+    { "name": "label", "type": "text", "label": "Idea" },
+    { "name": "pos", "type": "text", "label": "Position", "hidden": true },
+    { "name": "parent", "type": "text", "label": "Nested in", "hidden": true }
+  ],
+  "links": [
+    { "name": "id", "type": "text" },
+    { "name": "from", "type": "text", "hidden": true },
+    { "name": "to", "type": "text", "hidden": true }
+  ]
+}

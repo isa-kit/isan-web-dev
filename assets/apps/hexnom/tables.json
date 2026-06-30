@@ -1,0 +1,5 @@
+{
+  "tables": [
+    { "name": "cities", "label": "Cities" }
+  ]
+}

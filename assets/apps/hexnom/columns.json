@@ -1,0 +1,7 @@
+{
+  "cities": [
+    { "name": "id", "type": "text" },
+    { "name": "name", "type": "text", "label": "City" },
+    { "name": "pop", "type": "number", "label": "Population" }
+  ]
+}

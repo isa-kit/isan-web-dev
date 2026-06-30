@@ -1,0 +1,23 @@
+{
+  "app": { "title": "Next service", "primaryColor": "#00695C", "theme": "material" },
+  "nav": [
+    { "id": "eta", "label": "Departures", "icon": "departure_board", "screen": "eta" }
+  ],
+  "screens": {
+    "eta": {
+      "title": "Next service near you",
+      "body": {
+        "type": "column",
+        "children": [
+          { "type": "text",
+            "value": "For when you're out waiting for a train or bus. It finds your location and shows nearby stops on the map with their next departures — LIVE where the agency reports it (with how late it's running), or the SCHEDULE otherwise." },
+          { "type": "transit_eta", "height": 620, "radius": 600 },
+          { "type": "text", "style": "caption",
+            "value": "Native map: your location, nearby stops, next departures. Boston streams live (MBTA); Toronto shows the schedule — go online for the most accurate times." },
+          { "type": "button", "label": "Open full version in browser", "icon": "open_in_browser",
+            "action": { "fn": "openLink", "args": { "url": "https://167.233.64.97/t4/transit_eta.html" } } }
+        ]
+      }
+    }
+  }
+}

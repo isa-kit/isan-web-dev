@@ -1,0 +1,9 @@
+{
+  "id": "departures",
+  "name": "Next service",
+  "category": "Maps & cities",
+  "icon": "departure_board",
+  "color": "#00695C",
+  "store": { "type": "sqflite", "namespace": "isan_departures" },
+  "seedVersion": "2026-06-24.1"
+}

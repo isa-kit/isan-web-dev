@@ -1,0 +1,70 @@
+{
+  "app": {
+    "title": "Notes",
+    "primaryColor": "#B28704",
+    "theme": "warmshift"
+  },
+  "nav": [
+    { "id": "edit", "label": "Notes", "icon": "edit_note", "screen": "edit" },
+    { "id": "browse", "label": "Browse", "icon": "sticky_note", "screen": "browse" }
+  ],
+  "screens": {
+    "edit": {
+      "title": "Notes",
+      "body": {
+        "type": "explorer",
+        "railMode": "collapsible",
+        "table": "notes",
+        "nameColumn": "title",
+        "kindColumn": "kind",
+        "parentColumn": "parentId",
+        "title": "Notes",
+        "fileIcon": "note",
+        "newFileLabel": "New note",
+        "newFolderLabel": "New folder",
+        "detail": {
+          "type": "notepad",
+          "table": "notes",
+          "column": "body",
+          "titleColumn": "title",
+          "placeholder": "Jot a note… **bold**, # headings and - bullets all work."
+        }
+      }
+    },
+    "browse": {
+      "title": "Browse",
+      "body": {
+        "type": "column",
+        "children": [
+          {
+            "type": "text",
+            "style": "caption",
+            "value": "Every note, pinned first. Open one in the Notes tab to edit it inline."
+          },
+          {
+            "type": "cards",
+            "emptyIcon": "note_add",
+            "emptyTitle": "No notes yet",
+            "emptyText": "Create your first note to get started.",
+            "table": "notes",
+            "groupBy": "pinned",
+            "groupOrder": ["true", "false"],
+            "sort": { "column": "date", "dir": "desc" },
+            "title": "title",
+            "subtitle": "body",
+            "tags": [
+              { "column": "pinned", "colors": { "true": "amber", "false": "gray" } }
+            ],
+            "expandable": true,
+            "expandFields": [
+              { "column": "body", "label": "Note" },
+              { "column": "date", "label": "Date" }
+            ],
+            "open": "Edit note",
+            "action": { "fn": "editRow" }
+          }
+        ]
+      }
+    }
+  }
+}
