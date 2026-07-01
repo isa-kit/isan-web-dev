@@ -27,6 +27,7 @@
         "edgeType": "type",
         "containsType": "contains",
         "sharedBadge": true,
+        "dragReparent": true,
         "recursive": true,
         "orderColumn": "order",
         "title": "Entries",
