@@ -43,6 +43,9 @@
         "tags": [
           { "column": "status", "colors": { "active": "green", "queued": "amber", "done": "gray" } }
         ],
+        "scopeTargets": [
+          { "table": "relations", "column": "fromId" }
+        ],
         "detail": {
           "type": "column",
           "bindRow": true,
@@ -102,6 +105,28 @@
                 "sheets":    { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "height": 460 },
                 "docs":      { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "screen": "solo", "height": 460 },
                 "sketchpad": { "type": "embed", "table": "entries", "appletColumn": "type", "instanceFromRow": true, "height": 460 }
+              }
+            },
+            {
+              "type": "text",
+              "style": "caption",
+              "value": "Connections — this entry's links to other entries. `contains` builds the tree; references / depends on / relates to / blocks are cross-links. Tap ＋ to link this entry to another (it can live under many)."
+            },
+            {
+              "type": "cards",
+              "table": "relations",
+              "title": "toId",
+              "minCardWidth": 2000,
+              "tableView": false,
+              "expandable": false,
+              "tags": [
+                { "column": "type", "colors": { "contains": "teal", "references": "blue", "depends_on": "amber", "relates_to": "gray", "blocks": "red" } }
+              ],
+              "action": { "fn": "editRow" },
+              "addCard": {
+                "label": "＋ Link to another entry",
+                "icon": "hub",
+                "action": { "fn": "addRelation", "args": { "table": "relations" } }
               }
             }
           ]
