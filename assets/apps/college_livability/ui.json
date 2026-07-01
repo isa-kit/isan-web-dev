@@ -1,0 +1,164 @@
+{
+  "app": {
+    "title": "Car-free college guide",
+    "primaryColor": "#0F6E56",
+    "theme": "contrast"
+  },
+  "nav": [
+    {
+      "id": "rankings",
+      "label": "Rankings",
+      "icon": "leaderboard",
+      "screen": "rankings"
+    },
+    {
+      "id": "map",
+      "label": "Map",
+      "icon": "map",
+      "screen": "map"
+    },
+    {
+      "id": "about",
+      "label": "About",
+      "icon": "menu_book",
+      "screen": "about"
+    }
+  ],
+  "screens": {
+    "rankings": {
+      "title": "Colleges ranked",
+      "body": {
+        "type": "column",
+        "children": [
+          {
+            "type": "text",
+            "style": "caption",
+            "value": "Ranked by how livable each college town is WITHOUT a car and on a tight budget. Tap a card to see why; tap Open to edit."
+          },
+          {
+            "type": "cards",
+            "table": "colleges",
+            "sort": {
+              "column": "score",
+              "dir": "desc"
+            },
+            "title": "name",
+            "subtitle": "location",
+            "groupByOptions": [
+              { "label": "Tier", "column": "tier" },
+              { "label": "Country", "column": "country" }
+            ],
+            "tags": [
+              {
+                "column": "tier",
+                "colors": {
+                  "excellent": "green",
+                  "good": "teal",
+                  "fair": "amber",
+                  "car-needed": "red"
+                }
+              }
+            ],
+            "filterable": true,
+            "expandable": true,
+            "expandFields": [
+              { "column": "score", "label": "Score (0-100)" },
+              { "column": "walkability", "label": "Walkability" },
+              { "column": "transit", "label": "Transit" },
+              { "column": "cost", "label": "Cost of living" },
+              { "column": "blurb", "label": "Why" }
+            ],
+            "open": "View / edit",
+            "action": {
+              "fn": "editRow"
+            }
+          },
+          {
+            "type": "button",
+            "label": "Add a college",
+            "icon": "add",
+            "action": {
+              "fn": "addRow",
+              "args": {
+                "table": "colleges",
+                "values": {
+                  "tier": "fair"
+                }
+              }
+            }
+          }
+        ]
+      }
+    },
+    "map": {
+      "title": "Colleges on the map",
+      "body": {
+        "type": "column",
+        "children": [
+          {
+            "type": "text",
+            "style": "caption",
+            "value": "Every college on this list, plotted worldwide. Tap a pin or a row below to see or edit its details."
+          },
+          {
+            "type": "map",
+            "table": "colleges",
+            "latColumn": "lat",
+            "lonColumn": "lon",
+            "labelColumn": "name",
+            "height": 480,
+            "zoom": 2,
+            "markerIcon": "pin",
+            "action": {
+              "fn": "editRow"
+            }
+          }
+        ]
+      }
+    },
+    "about": {
+      "title": "About this guide",
+      "body": {
+        "type": "column",
+        "children": [
+          {
+            "type": "text",
+            "style": "title",
+            "value": "Who this is for"
+          },
+          {
+            "type": "text",
+            "value": "Students choosing a college who don't have a car and don't have much money. The score on each college asks one question: can you actually live here without a car, on a tight budget? The list now spans the US and major university cities worldwide — you can group the rankings by country."
+          },
+          {
+            "type": "text",
+            "style": "title",
+            "value": "How the score works"
+          },
+          {
+            "type": "text",
+            "value": "Three things matter most: how walkable the campus and town are, how good (and how cheap) public transit is, and how affordable rent and daily costs run. A town scores well only when ALL THREE line up, not just one."
+          },
+          {
+            "type": "text",
+            "style": "title",
+            "value": "Tiers"
+          },
+          {
+            "type": "text",
+            "value": "Excellent (85+): genuinely car-free, most students don't own one. Good (70-84): very doable with a bike or transit pass. Fair (50-69): workable but you'll plan around gaps. Car-needed (below 50): expect to need a ride from someone, sometimes."
+          },
+          {
+            "type": "text",
+            "style": "title",
+            "value": "A starting point, not a verdict"
+          },
+          {
+            "type": "text",
+            "value": "This list of around 100 colleges across the US and the world is curated and hand-estimated, not live data — and it is nowhere near every college on earth. Treat it as a starting point: add your own colleges, edit any score, and verify the notes with your own research before deciding."
+          }
+        ]
+      }
+    }
+  }
+}

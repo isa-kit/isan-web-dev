@@ -1,0 +1,23 @@
+{
+  "colleges": [
+    { "name": "name", "type": "text", "label": "College", "required": true },
+    { "name": "city", "type": "text", "label": "City" },
+    { "name": "state", "type": "text", "label": "State / region" },
+    { "name": "country", "type": "text", "label": "Country" },
+    { "name": "location", "type": "text", "label": "Location" },
+    { "name": "lat", "type": "number", "label": "Latitude" },
+    { "name": "lon", "type": "number", "label": "Longitude" },
+    { "name": "score", "type": "number", "label": "Score (0-100)" },
+    {
+      "name": "tier",
+      "type": "enum",
+      "label": "Tier",
+      "options": ["excellent", "good", "fair", "car-needed"],
+      "default": "fair"
+    },
+    { "name": "walkability", "type": "text", "label": "Walkability" },
+    { "name": "transit", "type": "text", "label": "Transit" },
+    { "name": "cost", "type": "text", "label": "Cost of living" },
+    { "name": "blurb", "type": "text", "label": "Why" }
+  ]
+}
