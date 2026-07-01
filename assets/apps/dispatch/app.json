@@ -7,5 +7,5 @@
     "type": "sqflite",
     "namespace": "isan_dispatch"
   },
-  "seedVersion": "2026-06-28.unified-entries"
+  "seedVersion": "2026-06-30.graph-relations"
 }

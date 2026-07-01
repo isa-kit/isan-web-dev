@@ -27,14 +27,6 @@
       "description": "group = folder; note = text; image = an up/downloadable image (its own attachment); wireframe / sheets / docs / sketchpad = an embedded tool keyed to THIS entry (its own isolated data)."
     },
     {
-      "name": "parentId",
-      "type": "ref",
-      "label": "Parent",
-      "refTable": "entries",
-      "rules": { "hidden": true },
-      "description": "The entry this one sits inside. Empty = a root entry."
-    },
-    {
       "name": "status",
       "type": "enum",
       "label": "Status",
@@ -74,6 +66,45 @@
       "name": "updatedAt",
       "type": "text",
       "label": "Updated"
+    }
+  ],
+  "relations": [
+    {
+      "name": "fromId",
+      "type": "ref",
+      "label": "From",
+      "refTable": "entries",
+      "required": true,
+      "description": "The source node of this relationship."
+    },
+    {
+      "name": "toId",
+      "type": "ref",
+      "label": "To",
+      "refTable": "entries",
+      "required": true,
+      "description": "The target node of this relationship."
+    },
+    {
+      "name": "type",
+      "type": "enum",
+      "label": "Relationship",
+      "options": ["contains", "references", "depends_on", "relates_to", "blocks"],
+      "default": "relates_to",
+      "description": "How the two nodes relate. `contains` is the structural parent→child (drives the tree); the rest are free cross-links (any direction, may be mutual). Custom types allowed."
+    },
+    {
+      "name": "order",
+      "type": "number",
+      "label": "Order",
+      "rules": { "hidden": true },
+      "description": "Display order among a node's contained children."
+    },
+    {
+      "name": "label",
+      "type": "text",
+      "label": "Label",
+      "description": "Optional note on the edge (e.g. 'blocked on the bug fix')."
     }
   ],
   "users": [
