@@ -111,24 +111,20 @@
             {
               "type": "text",
               "style": "caption",
-              "value": "Connections — this entry's links to other entries. `contains` builds the tree; references / depends on / relates to / blocks are cross-links. Tap ＋ to link this entry to another (it can live under many)."
+              "value": "Thread — the entries inside this one, in context. Tap one to open it. Drag a task onto this entry in the tree to add it here (it can live under many)."
             },
             {
-              "type": "cards",
-              "table": "relations",
-              "title": "toId",
-              "minCardWidth": 2000,
-              "tableView": false,
-              "expandable": false,
-              "tags": [
-                { "column": "type", "colors": { "contains": "teal", "references": "blue", "depends_on": "amber", "relates_to": "gray", "blocks": "red" } }
-              ],
-              "action": { "fn": "editRow" },
-              "addCard": {
-                "label": "＋ Link to another entry",
-                "icon": "hub",
-                "action": { "fn": "addRelation", "args": { "table": "relations" } }
-              }
+              "type": "entrythread",
+              "table": "entries",
+              "edgesTable": "relations",
+              "edgeFrom": "fromId",
+              "edgeTo": "toId",
+              "edgeType": "type",
+              "containsType": "contains",
+              "titleColumn": "title",
+              "subtitleColumn": "comment",
+              "orderColumn": "order",
+              "action": { "fn": "editRow", "args": { "table": "entries" } }
             }
           ]
         }
