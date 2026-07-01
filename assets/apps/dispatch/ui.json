@@ -30,7 +30,11 @@
         "dragReparent": true,
         "recursive": true,
         "orderColumn": "order",
-        "title": "Entries",
+        "title": "Projects",
+        "twoLevel": true,
+        "railWidth1": 200,
+        "railWidth2": 300,
+        "autoSelectFirstChild": true,
         "railWidth": 300,
         "railMode": "collapsible",
         "autoSelectFirst": true,
@@ -124,6 +128,11 @@
               "titleColumn": "title",
               "subtitleColumn": "comment",
               "orderColumn": "order",
+              "previewInline": true,
+              "previewColumn": "attachment",
+              "previewTypes": ["wireframe", "sheets", "docs", "sketchpad"],
+              "appletColumn": "type",
+              "peekHeight": 170,
               "action": { "fn": "editRow", "args": { "table": "entries" } }
             }
           ]
