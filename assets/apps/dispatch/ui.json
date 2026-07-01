@@ -59,18 +59,18 @@
           "scroll": true,
           "children": [
             {
-              "type": "notepad",
+              "type": "record",
               "table": "entries",
-              "column": "title",
-              "chromeless": true,
-              "autoHeight": true,
-              "placeholder": "Title"
+              "compact": true,
+              "readOnly": true,
+              "fields": ["title", "status", "comment"]
             },
             {
               "type": "switch",
               "table": "entries",
               "column": "type",
               "cases": {
+                "group": { "type": "column", "children": [] },
                 "image": { "type": "column", "children": [] },
                 "wireframe": { "type": "column", "children": [] },
                 "sheets": { "type": "column", "children": [] },
@@ -81,10 +81,9 @@
                 "type": "pick",
                 "table": "entries",
                 "column": "type",
-                "label": "Type",
+                "label": "Turn this note into",
                 "options": [
                   { "value": "note", "label": "Note" },
-                  { "value": "group", "label": "Folder" },
                   { "value": "image", "label": "Image" },
                   { "value": "docs", "label": "Doc" },
                   { "value": "sheets", "label": "Sheet" },
@@ -92,14 +91,6 @@
                   { "value": "sketchpad", "label": "Sketch" }
                 ]
               }
-            },
-            {
-              "type": "notepad",
-              "table": "entries",
-              "column": "comment",
-              "chromeless": true,
-              "autoHeight": true,
-              "placeholder": "Write a comment…"
             },
             {
               "type": "switch",
