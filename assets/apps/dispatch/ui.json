@@ -132,7 +132,9 @@
               "previewColumn": "attachment",
               "previewTypes": ["wireframe", "sheets", "docs", "sketchpad"],
               "appletColumn": "type",
-              "peekHeight": 170,
+              "peekHeight": 200,
+              "editable": true,
+              "allowAdd": true,
               "action": { "fn": "editRow", "args": { "table": "entries" } }
             }
           ]
