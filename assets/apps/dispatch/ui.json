@@ -26,6 +26,7 @@
         "edgeTo": "toId",
         "edgeType": "type",
         "containsType": "contains",
+        "sharedBadge": true,
         "recursive": true,
         "orderColumn": "order",
         "title": "Entries",
