@@ -139,6 +139,11 @@
               "addHint": "Add to the log…",
               "emptyText": "No log yet — add the first update below, or drag a task in to nest it here.",
               "removeLabel": "Remove from this log",
+              "authorColumn": "createdBy",
+              "authorTable": "users",
+              "authorNameColumn": "name",
+              "attachInline": true,
+              "attachColumn": "attachment",
               "action": { "fn": "editRow", "args": { "table": "entries" } }
             }
           ]
